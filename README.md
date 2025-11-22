@@ -15,3 +15,23 @@ This project focuses on analyzing Netflix’s movies and TV shows using SQL. The
 
 ## Dataset
 Dataset Link: [Netflix-Movies-Dataset](https://www.kaggle.com/datasets/utkarshx27/movies-dataset)
+
+
+## Schema
+
+DROP TABLE IF EXISTS netflix;
+
+CREATE TABLE netflix(
+	show_id VARCHAR(20),
+	type VARCHAR(50),
+	title VARCHAR(150),
+	director VARCHAR(208),
+	casts VARCHAR(1000),
+	country VARCHAR(50),
+	date_added VARCHAR(50),
+	release_year INT,
+	rating VARCHAR(20),
+	duration VARCHAR(50),
+	listed_in VARCHAR(50),
+	description VARCHAR(250)
+);
