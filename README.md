@@ -12,3 +12,6 @@ This project focuses on analyzing Netflix’s movies and TV shows using SQL. The
 * Review and analyze content based on when it was released, which countries it came from, and how long it is.
 * Explore the dataset further by grouping content according to specific conditions or keywords (such as genres, themes, or terms found in descriptions).
 
+
+## Dataset
+Dataset Link:(https://www.kaggle.com/datasets/utkarshx27/movies-dataset)
