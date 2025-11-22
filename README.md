@@ -47,6 +47,6 @@ FROM netflix
 GROUP BY type;
 ```
 
-##Objective:## Determine the disdtribution of content types on Netflix.
+## Objective:## Determine the disdtribution of content types on Netflix.
 
 ### 2. Find the most common Rating for Movies and TV Shows.
