@@ -18,7 +18,7 @@ Dataset Link: [Netflix-Movies-Dataset](https://www.kaggle.com/datasets/utkarshx2
 
 
 ## Schema
-
+```sql
 DROP TABLE IF EXISTS netflix;
 
 CREATE TABLE netflix(
@@ -35,3 +35,4 @@ CREATE TABLE netflix(
 	listed_in VARCHAR(50),
 	description VARCHAR(250)
 );
+```
