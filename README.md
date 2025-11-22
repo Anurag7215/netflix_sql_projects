@@ -7,3 +7,8 @@ This project focuses on analyzing Netflix’s movies and TV shows using SQL. The
 
 
 ## Objective
+* Understand how Netflix’s content is divided between movies and TV shows.
+* Find out which ratings (like PG, TV-MA, etc.) are most common for both movies and TV shows.
+* Review and analyze content based on when it was released, which countries it came from, and how long it is.
+* Explore the dataset further by grouping content according to specific conditions or keywords (such as genres, themes, or terms found in descriptions).
+
