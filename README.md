@@ -121,6 +121,7 @@ FROM netflix;
 ```
 
 Objective: Gauge family/kids focus for subscriber segmentation.
+
 ### 8. Identify the longest movie or TV show duration.
 
 ```sql
@@ -128,3 +129,151 @@ SELECT * FROM netflix
 	WHERE type = 'Movie'
 	AND duration =(SELECT MAX(duration) FROM netflix);
 ```
+
+Objective:
+
+### 9. Find content added in the last 5 years
+
+```sql
+SELECT *
+FROM netflix
+WHERE To_Date(date_added,'Month,DD,YYYY') >= current_date - INTERVAL '5years';
+```
+
+Objective:
+
+### 10. Find all the movies/TV shows by director 'Rajiv Chilaka'!
+
+```sql
+SELECT * FROM netflix
+	WHERE director ILIKE '%Rajiv Chilaka%';
+```
+
+Objective:
+
+### 11. List all TV shows with more than 5 seasons
+
+```sql
+SELECT * FROM netflix
+	WHERE type = 'TV Show'
+	AND split_part(duration, ' ', 1)::numeric > 5;
+```
+
+Objective: 
+
+### 12. Count the number of content items in each genre
+
+```sql
+SELECT 
+    UNNEST(string_to_array(listed_in,',')) AS genre,
+    COUNT(Show_id) AS total_content
+FROM netflix
+GROUP BY genre;
+```
+
+Objective: 
+
+### 13. What is the share of Originals vs Non-Originals (approx. by directors or lack thereof)?
+
+```sql
+SELECT 
+  CASE WHEN director IS NULL OR director LIKE '%Netflix%' THEN 'Likely Original' ELSE 'Likely Licensed' END AS origin,
+  COUNT(*) AS cnt
+FROM netflix
+GROUP BY origin;
+```
+
+Objective: Estimate how much is Netflix-original content (proxy).
+
+### 14. Find each year and the average numbers of content release by India on netflix,return top 5 year with highest avg content release! 
+
+```sql
+SELECT 
+	EXTRACT(YEAR FROM to_date(date_added,'Month,DD,YYYY')) AS Year,
+	COUNT(*) AS yearly_content,
+	ROUND(
+	COUNT(*)::NUMERIC/(SELECT COUNT(*)FROM netflix
+	WHERE country = 'India')::NUMERIC * 100,2) AS avg_content_per_year
+FROM netflix
+WHERE country = 'India'
+GROUP BY year;
+```
+
+Objective:
+
+### 15. List all movies that are documentaries
+
+```sql
+SELECT * FROM netflix
+	WHERE listed_in ILIKE '%Documentaries%';
+```
+
+Objective:
+
+### 16. Find all content without a director
+
+```sql
+SELECT * FROM netflix
+	WHERE director IS NULL;
+```
+
+Objective:
+
+### 17. Find how many movies actor 'Salman Khan' appeared in last 10 years!
+
+```sql
+SELECT * FROM netflix
+	WHERE casts ILIKE '%Salman Khan%'
+	AND release_year >= EXTRACT(YEAR FROM CURRENT_DATE)-10;
+```
+
+Objective:
+
+### 18. Find the top 10 actors who have appeared in the highest number of movies produced in India.
+
+```sql
+SELECT 
+	UNNEST(STRING_TO_ARRAY(casts, ',')) AS new_casts,
+	COUNT(*) AS total_content
+	FROM netflix
+	WHERE country ILIKE '%india'
+	GROUP BY new_casts
+	ORDER BY total_content  DESC
+	LIMIT 10;
+```
+
+Objective:
+
+### 19. 19.Categorize the content based on the presence of the keywords 'kill' and 'violence' in the description field. Label content containing these keywords as 'Bad' and all other content as 'Good'. Count how many items fall into each category.
+
+```sql
+SELECT 
+    CASE 
+        WHEN LOWER(description) ILIKE '%kill%' 
+          OR LOWER(description) ILIKE '%violence%' 
+        THEN 'Bad_Content'
+        ELSE 'Good_Content'
+    END AS category,
+    COUNT(*) AS total_items
+FROM netflix
+GROUP BY category;
+```
+
+Objective:
+
+### 19. Does Netflix focus more on recent releases or older content?
+
+```sql
+SELECT 
+    CASE 
+        WHEN release_year >= 2018 THEN 'Recent'
+        WHEN release_year BETWEEN 2000 AND 2017 THEN 'Moderate'
+        ELSE 'Old'
+    END AS age_group,
+    COUNT(*) AS total_titles
+FROM netflix
+GROUP BY age_group
+ORDER BY total_titles DESC;
+```
+
+Objective: Measure how modern the catalog is; streaming platforms prefer new content.
