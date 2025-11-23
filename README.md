@@ -49,4 +49,82 @@ GROUP BY type;
 
 Objective: Determine the disdtribution of content types on Netflix.
 
-### 2. Find the most common Rating for Movies and TV Shows.
+### 2. Number of movies released per year.
+
+```sql
+SELECT release_year, COUNT(*) AS movie_count
+FROM netflix
+WHERE type = 'Movie'
+GROUP BY release_year
+ORDER BY release_year;
+```
+
+Objective: yearly trends in movie production on Netflix.
+
+### 3. Top 10 directors by number of Titles.
+
+```sql
+SELECT director, COUNT(*) AS total_titles
+FROM netflix
+WHERE director IS NOT NULL
+GROUP BY director
+ORDER BY total_titles DESC
+LIMIT 10;
+```
+
+Objective: identifies the most prolific directors on Netflix based on the number of titles they have contributed.
+
+### 4. Find the most common rating for movies and TV shows.
+
+```sql
+SELECT type,rating,
+COUNT(*) AS count_rating,
+RANK() OVER(PARTITION BY TYPE ORDER BY COUNT(*)DESC) AS ranking
+FROM netflix
+GROUP BY type,rating;
+```
+
+Objective:
+
+### 5. List all movies released in a specific year (e.g., 2020).
+
+``sql
+SELECT * FROM netflix
+	WHERE TYPE='Movie'
+	AND release_year=2020;
+	```
+
+Objective: 
+
+### 6. Find the top 5 countries with the most content on Netflix.
+
+```sql
+SELECT
+	UNNEST(STRING_TO_ARRAY(country,',')) AS new_country,
+	COUNT(show_id) AS total_content
+FROM netflix
+GROUP BY new_country
+ORDER BY total_content DESC
+LIMIT 5;
+```
+
+Objective: 
+
+### 7. What percentage of content is family/kids oriented?
+
+```sql
+SELECT
+  SUM(CASE WHEN LOWER(listed_in) LIKE '%children%' OR LOWER(listed_in) LIKE '%kids%' OR LOWER(listed_in) LIKE '%family%' THEN 1 ELSE 0 END) AS kids_count,
+  COUNT(*) AS total,
+  ROUND(100.0 * SUM(CASE WHEN LOWER(listed_in) LIKE '%children%' OR LOWER(listed_in) LIKE '%kids%' OR LOWER(listed_in) LIKE '%family%' THEN 1 ELSE 0 END) / COUNT(*), 2) AS pct_kids
+FROM netflix;
+```
+
+Objective: Gauge family/kids focus for subscriber segmentation.
+### 8. Identify the longest movie or TV show duration.
+
+```sql
+SELECT * FROM netflix
+	WHERE type = 'Movie'
+	AND duration =(SELECT MAX(duration) FROM netflix);
+```
