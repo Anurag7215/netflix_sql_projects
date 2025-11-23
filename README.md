@@ -59,7 +59,7 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Objective: yearly trends in movie production on Netflix.
+Objective: Yearly trends in movie production on Netflix.
 
 ### 3. Top 10 directors by number of Titles.
 
@@ -72,7 +72,7 @@ ORDER BY total_titles DESC
 LIMIT 10;
 ```
 
-Objective: identifies the most prolific directors on Netflix based on the number of titles they have contributed.
+Objective: Identifies the most prolific directors on Netflix based on the number of titles they have contributed.
 
 ### 4. Find the most common rating for movies and TV shows.
 
@@ -84,7 +84,7 @@ FROM netflix
 GROUP BY type,rating;
 ```
 
-Objective:
+Objective: Identify the most frequently occurring rating for each type of content.
 
 ### 5. List all movies released in a specific year (e.g., 2020).
 
@@ -94,7 +94,7 @@ SELECT * FROM netflix
 	AND release_year=2020;
 	```
 
-Objective: 
+Objective: Retrieve all movies released in a specific year.
 
 ### 6. Find the top 5 countries with the most content on Netflix.
 
@@ -108,7 +108,7 @@ ORDER BY total_content DESC
 LIMIT 5;
 ```
 
-Objective: 
+Objective: Identify the top 5 countries with the highest number of content items.
 
 ### 7. What percentage of content is family/kids oriented?
 
@@ -130,7 +130,7 @@ SELECT * FROM netflix
 	AND duration =(SELECT MAX(duration) FROM netflix);
 ```
 
-Objective:
+Objective: Find the movie with the longest duration.
 
 ### 9. Find content added in the last 5 years
 
@@ -140,7 +140,7 @@ FROM netflix
 WHERE To_Date(date_added,'Month,DD,YYYY') >= current_date - INTERVAL '5years';
 ```
 
-Objective:
+Objective: Retrieve content added to Netflix in the last 5 years.
 
 ### 10. Find all the movies/TV shows by director 'Rajiv Chilaka'!
 
@@ -149,7 +149,7 @@ SELECT * FROM netflix
 	WHERE director ILIKE '%Rajiv Chilaka%';
 ```
 
-Objective:
+Objective: List all content directed by 'Rajiv Chilaka'.
 
 ### 11. List all TV shows with more than 5 seasons
 
@@ -159,7 +159,7 @@ SELECT * FROM netflix
 	AND split_part(duration, ' ', 1)::numeric > 5;
 ```
 
-Objective: 
+Objective: Identify TV shows with more than 5 seasons.
 
 ### 12. Count the number of content items in each genre
 
@@ -171,7 +171,7 @@ FROM netflix
 GROUP BY genre;
 ```
 
-Objective: 
+Objective: Count the number of content items in each genre.
 
 ### 13. What is the share of Originals vs Non-Originals (approx. by directors or lack thereof)?
 
@@ -199,7 +199,7 @@ WHERE country = 'India'
 GROUP BY year;
 ```
 
-Objective:
+Objective: Calculate and rank years by the average number of content releases by India.
 
 ### 15. List all movies that are documentaries
 
@@ -208,7 +208,7 @@ SELECT * FROM netflix
 	WHERE listed_in ILIKE '%Documentaries%';
 ```
 
-Objective:
+Objective: Retrieve all movies classified as documentaries.
 
 ### 16. Find all content without a director
 
@@ -217,7 +217,7 @@ SELECT * FROM netflix
 	WHERE director IS NULL;
 ```
 
-Objective:
+Objective: List content that does not have a director.
 
 ### 17. Find how many movies actor 'Salman Khan' appeared in last 10 years!
 
@@ -227,7 +227,7 @@ SELECT * FROM netflix
 	AND release_year >= EXTRACT(YEAR FROM CURRENT_DATE)-10;
 ```
 
-Objective:
+Objective: Count the number of movies featuring 'Salman Khan' in the last 10 years.
 
 ### 18. Find the top 10 actors who have appeared in the highest number of movies produced in India.
 
@@ -242,7 +242,7 @@ SELECT
 	LIMIT 10;
 ```
 
-Objective:
+Objective: Identify the top 10 actors with the most appearances in Indian-produced movies.
 
 ### 19. 19.Categorize the content based on the presence of the keywords 'kill' and 'violence' in the description field. Label content containing these keywords as 'Bad' and all other content as 'Good'. Count how many items fall into each category.
 
@@ -259,9 +259,9 @@ FROM netflix
 GROUP BY category;
 ```
 
-Objective:
+Objective: Categorize content as 'Bad' if it contains 'kill' or 'violence' and 'Good' otherwise. Count the number of items in each category.
 
-### 19. Does Netflix focus more on recent releases or older content?
+### 20. Does Netflix focus more on recent releases or older content?
 
 ```sql
 SELECT 
