@@ -276,4 +276,4 @@ GROUP BY age_group
 ORDER BY total_titles DESC;
 ```
 
-Objective: Measure how modern the catalog is; streaming platforms prefer new content.
+Objective: Measure how modern the catalog is streaming platforms prefer new content.
