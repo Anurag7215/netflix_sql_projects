@@ -47,7 +47,7 @@ FROM netflix
 GROUP BY type;
 ```
 
-Objective: Determine the disdtribution of content types on Netflix.
+**Objective:** Determine the disdtribution of content types on Netflix.
 
 ### 2. Number of movies released per year.
 
