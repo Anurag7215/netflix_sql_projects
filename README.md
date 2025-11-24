@@ -92,7 +92,7 @@ GROUP BY type,rating;
 SELECT * FROM netflix
 	WHERE TYPE='Movie'
 	AND release_year=2020;
-	```
+```
 
 **Objective:** Retrieve all movies released in a specific year.
 
