@@ -88,7 +88,7 @@ GROUP BY type,rating;
 
 ### 5. List all movies released in a specific year (e.g., 2020).
 
-``sql
+```sql
 SELECT * FROM netflix
 	WHERE TYPE='Movie'
 	AND release_year=2020;
