@@ -280,7 +280,7 @@ Objective: Measure how modern the catalog is streaming platforms prefer new cont
 
 ## Findings and Conclusion
 
-- **Content Distribution:** The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
-- **Common Ratings:** Insights into the most common ratings provide an understanding of the content's target audience.
-- **Geographical Insights:** The top countries and the average content releases by India highlight regional content distribution.
+- **Diverse Content Library:** Netflix features a wide and varied collection of movies and TV shows, covering a broad spectrum of genres and age ratings.
+- **Audience Focus (Ratings):** The most frequent content ratings clearly indicate the platform's main target demographic (e.g., adult or mature-teen viewers).
+- **Global & Regional Focus:** The data highlights top content-contributing countries globally, with a specific measure of India's average releases underscoring its importance as a key regional market.
 - **Content Categorization:** Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
