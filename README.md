@@ -284,3 +284,9 @@ ORDER BY total_titles DESC;
 - **Audience Focus (Ratings):** The most frequent content ratings clearly indicate the platform's main target demographic (e.g., adult or mature-teen viewers).
 - **Global & Regional Focus:** The data highlights top content-contributing countries globally, with a specific measure of India's average releases underscoring its importance as a key regional market.
 - **Content Categorization:** Categorizing content based on specific keywords helps in understanding the nature of content available on Netflix.
+  
+
+
+## Author - Zero Analyst
+
+This project is a key part of my professional portfolio, specifically designed to demonstrate the SQL skills that are vital for succeeding in a Data Analyst role. I welcome any questions, feedback, or opportunities for collaboration, so please don't hesitate to reach out!
