@@ -287,6 +287,6 @@ ORDER BY total_titles DESC;
   
 
 
-## Author - Zero Analyst
+## Author - Anurag Atul Srivastava
 
 This project is a key part of my professional portfolio, specifically designed to demonstrate the SQL skills that are vital for succeeding in a Data Analyst role. I welcome any questions, feedback, or opportunities for collaboration, so please don't hesitate to reach out!
