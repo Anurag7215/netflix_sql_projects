@@ -1,5 +1,5 @@
 # Netlix Movies and TV Shows Data Analysis using SQL
-![Netflix Logo]([https://github.com/Anurag7215/netflix_sql_projects/blob/main/netflix_logo.jpg])
+![Netflix Logo](https://github.com/Anurag7215/netflix_sql_projects/blob/main/netflix_logo.jpg)
 
 
 ## Overview 
